@@ -1,0 +1,343 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://Fonts/SpaceQuest-yOY3.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Images/HUD/outline_touch_app_white_24dp.png" type="Texture" id=2]
+[ext_resource path="res://GUI/UI/grey_button13.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Dag/Idle0.png" type="Texture" id=4]
+[ext_resource path="res://Parallax Background/preview.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Pies/ButterChickenIdle2.png" type="Texture" id=6]
+[ext_resource path="res://Scripts/PlayButton.gd" type="Script" id=7]
+[ext_resource path="res://Music/Music/Free-Game-Soundtrack-by-cactusdude-_hurry-up_.ogg" type="AudioStream" id=8]
+[ext_resource path="res://Scripts/NewGame.gd" type="Script" id=9]
+[ext_resource path="res://Scripts/TitleMenu.gd" type="Script" id=10]
+[ext_resource path="res://Scripts/QuiToDesktop.gd" type="Script" id=11]
+
+[sub_resource type="DynamicFont" id=1]
+size = 100
+outline_size = 5
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.141176, 0.129412, 0.129412, 1 )
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="DynamicFont" id=3]
+size = 25
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 23
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 25
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 30
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 23
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 35
+extra_spacing_char = 2
+extra_spacing_space = 1
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=9]
+size = 50
+font_data = ExtResource( 1 )
+
+[node name="TitleMenu" type="Control"]
+margin_right = 1927.0
+margin_bottom = 1080.0
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="TextureRect" parent="."]
+self_modulate = Color( 0.486275, 0.466667, 0.466667, 1 )
+margin_right = 1925.0
+margin_bottom = 1077.0
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 352.266
+margin_top = 103.591
+margin_right = 1212.27
+margin_bottom = 216.592
+rect_scale = Vector2( 1.5, 1.5 )
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 1, 0, 0, 1 )
+text = "DANGEROUS DAG"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Controls" type="Panel" parent="."]
+margin_left = 139.832
+margin_top = 720.841
+margin_right = 662.832
+margin_bottom = 893.841
+rect_scale = Vector2( 1.5, 1.5 )
+custom_styles/panel = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Controls"]
+margin_left = 359.569
+margin_top = 106.789
+margin_right = 483.569
+margin_bottom = 135.789
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = " = SHOOT"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="S" type="TextureRect" parent="Controls"]
+margin_left = 73.0597
+margin_top = 49.3838
+margin_right = 101.06
+margin_bottom = 76.3838
+texture = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="S" type="Label" parent="Controls/S"]
+margin_left = 4.62158
+margin_top = -1.18921
+margin_right = 22.6216
+margin_bottom = 25.8108
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "S"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="W" type="TextureRect" parent="Controls"]
+margin_left = 73.3777
+margin_top = 20.7938
+margin_right = 101.378
+margin_bottom = 47.7938
+texture = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="W" type="Label" parent="Controls/W"]
+margin_left = 2.14429
+margin_top = -1.04492
+margin_right = 42.1443
+margin_bottom = 25.9551
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "W"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="A" type="TextureRect" parent="Controls"]
+margin_left = 42.3128
+margin_top = 48.6874
+margin_right = 70.3128
+margin_bottom = 75.6874
+texture = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="A" type="Label" parent="Controls/A"]
+margin_left = 4.7928
+margin_top = -1.79279
+margin_right = 25.7928
+margin_bottom = 25.2072
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "A"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="D" type="TextureRect" parent="Controls"]
+margin_left = 103.332
+margin_top = 49.3838
+margin_right = 131.332
+margin_bottom = 76.3838
+texture = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="D" type="Label" parent="Controls/D"]
+margin_left = 4.9191
+margin_top = -1.04492
+margin_right = 44.9191
+margin_bottom = 25.9551
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "D"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MOVEMENT" type="Label" parent="Controls"]
+margin_left = 333.925
+margin_top = 41.209
+margin_right = 503.925
+margin_bottom = 70.209
+custom_fonts/font = SubResource( 5 )
+text = "= MOVEMENT"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Spacebar" type="Label" parent="Controls"]
+margin_left = 64.4126
+margin_top = 101.762
+margin_right = 324.413
+margin_bottom = 136.762
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "LONG PRESS LMB"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LongPress" type="TextureRect" parent="Controls"]
+margin_left = 14.2861
+margin_top = 95.7222
+margin_right = 62.2861
+margin_bottom = 143.722
+texture = ExtResource( 2 )
+
+[node name="Controls2" type="Panel" parent="."]
+margin_left = 1055.92
+margin_top = 727.686
+margin_right = 1532.92
+margin_bottom = 897.686
+rect_scale = Vector2( 1.5, 1.5 )
+custom_styles/panel = SubResource( 2 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="SPACEBAR" type="TextureRect" parent="Controls2"]
+margin_left = 32.0
+margin_top = 10.0
+margin_right = 95.0
+margin_bottom = 71.0
+texture = ExtResource( 4 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Controls2/SPACEBAR"]
+margin_left = 60.3437
+margin_top = 14.1911
+margin_right = 142.344
+margin_bottom = 33.1911
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = " = YOU"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SPACEBAR2" type="TextureRect" parent="Controls2"]
+margin_left = 38.7194
+margin_top = 100.686
+margin_right = 89.7194
+margin_bottom = 124.686
+texture = ExtResource( 6 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Controls2/SPACEBAR2"]
+margin_left = 55.1212
+margin_top = -13.1035
+margin_right = 406.121
+margin_bottom = 73.8965
+custom_fonts/font = SubResource( 7 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "COLLECT 3 PIES 
+TO MOVE TO THE NEXT LEVEL"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayButton" type="Button" parent="."]
+margin_left = 709.194
+margin_top = 417.89
+margin_right = 1110.19
+margin_bottom = 481.89
+rect_scale = Vector2( 1.5, 1.5 )
+custom_fonts/font = SubResource( 8 )
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+text = "JUMP TO GAMEPLAY"
+flat = true
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NewGame" type="Button" parent="."]
+margin_left = 827.118
+margin_top = 304.803
+margin_right = 1168.12
+margin_bottom = 412.803
+custom_fonts/font = SubResource( 9 )
+text = "New game"
+flat = true
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="QuiToDesktop" type="Button" parent="."]
+margin_left = 782.22
+margin_top = 522.561
+margin_right = 1242.22
+margin_bottom = 630.561
+custom_fonts/font = SubResource( 9 )
+text = "QUIT TO DESKTOP"
+flat = true
+script = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MusicTitleScreen" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+volume_db = -10.0
+autoplay = true
+mix_target = 1
+
+[connection signal="pressed" from="PlayButton" to="PlayButton" method="_on_PlayButton_pressed"]
+[connection signal="pressed" from="NewGame" to="NewGame" method="_on_NewGame_pressed"]
+[connection signal="pressed" from="QuiToDesktop" to="QuiToDesktop" method="_on_QuiToDesktop_pressed"]

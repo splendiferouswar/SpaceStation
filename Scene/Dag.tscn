@@ -1,0 +1,104 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://Sprites/Dag/Idle0.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/Dag.gd" type="Script" id=2]
+[ext_resource path="res://Sprites/Dag/Run0.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Dag/Fire2.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Dag/Run1.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Dag/Fire0.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Dag/Jump0.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Dag/Run5.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Dag/Run4.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Dag/Run2.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/Dag/Run3.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/Dag/Fall0.png" type="Texture" id=13]
+[ext_resource path="res://Music/sounds/jump1.ogg" type="AudioStream" id=14]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 5 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 10 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "Run",
+"speed": 7.5
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 4 ), ExtResource( 4 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "Shoot",
+"speed": 7.5
+}, {
+"frames": [ ExtResource( 13 ) ],
+"loop": true,
+"name": "Fall",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "Jump",
+"speed": 5.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 14.8779
+height = 28.6103
+
+[sub_resource type="Curve" id=3]
+_data = [ Vector2( 0.00190476, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.971429, 0.2 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=4]
+offsets = PoolRealArray( 0, 0.00202429, 1 )
+colors = PoolColorArray( 0.949219, 0.304684, 0.0222473, 1, 0.976563, 0.376344, 0.167847, 1, 0.894531, 0.808922, 0.111816, 1 )
+
+[node name="Dag" type="Node"]
+
+[node name="Dag" type="KinematicBody2D" parent="."]
+position = Vector2( 308.59, 239.163 )
+collision_mask = 2147483678
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="AnimatedSprite" parent="Dag"]
+position = Vector2( -10.3085, 3.18199 )
+frames = SubResource( 1 )
+animation = "Idle"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dag"]
+position = Vector2( -9.89145, 5.86811 )
+shape = SubResource( 2 )
+
+[node name="Camera2D" type="Camera2D" parent="Dag"]
+position = Vector2( 0, 16 )
+current = true
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+
+[node name="Timer" type="Timer" parent="Dag"]
+wait_time = 0.8
+one_shot = true
+
+[node name="SoundJump" type="AudioStreamPlayer" parent="Dag"]
+stream = ExtResource( 14 )
+volume_db = -30.0
+pitch_scale = 0.9
+
+[node name="vfx_line" type="Line2D" parent="Dag"]
+position = Vector2( 6, 12 )
+points = PoolVector2Array( 0, 0, 0, 0 )
+width_curve = SubResource( 3 )
+gradient = SubResource( 4 )
+
+[node name="RayCast2D" type="RayCast2D" parent="Dag"]
+position = Vector2( 0, 7 )
+rotation = -4.71239
+enabled = true
+cast_to = Vector2( 0, 1000 )
+collision_mask = 17
+collide_with_areas = true
+[connection signal="timeout" from="Dag/Timer" to="Dag" method="_on_Timer_timeout"]

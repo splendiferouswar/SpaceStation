@@ -1,0 +1,136 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Images/HUD/coinHUD.png" type="Texture" id=1]
+[ext_resource path="res://Images/HUD/Pie.png" type="Texture" id=2]
+[ext_resource path="res://Fonts/SpaceQuest-yOY3.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Scripts/HUD.gd" type="Script" id=4]
+[ext_resource path="res://Scripts/Quit.gd" type="Script" id=5]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.898039, 0.862745, 0.862745, 0.45098 )
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="DynamicFont" id=2]
+size = 48
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 48
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 32
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 25
+font_data = ExtResource( 3 )
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource( 4 )
+
+[node name="Panel" type="Panel" parent="."]
+margin_left = 45.0
+margin_top = 32.0
+margin_right = 310.0
+margin_bottom = 144.0
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_left = 62.7071
+margin_top = 42.8683
+margin_right = 975.707
+margin_bottom = 1001.87
+rect_scale = Vector2( 0.04, 0.04 )
+texture = ExtResource( 1 )
+expand = true
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Coins" type="Label" parent="."]
+margin_left = 211.225
+margin_top = 28.7103
+margin_right = 281.225
+margin_bottom = 90.7103
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.988235, 0.945098, 0.25098, 1 )
+text = "##"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+margin_left = 55.6476
+margin_top = 96.2204
+margin_right = 102.648
+margin_bottom = 130.22
+texture = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Pie" type="Label" parent="."]
+margin_left = 227.518
+margin_top = 79.4981
+margin_right = 297.518
+margin_bottom = 134.498
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.988235, 0.945098, 0.25098, 1 )
+text = "##"
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Quit" type="Button" parent="."]
+margin_left = 1764.33
+margin_top = 26.9289
+margin_right = 1898.33
+margin_bottom = 87.9289
+custom_fonts/font = SubResource( 4 )
+text = "QUIT"
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Coins Collected = " type="Label" parent="."]
+margin_left = 109.476
+margin_top = 46.946
+margin_right = 223.476
+margin_bottom = 75.946
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0.988235, 0.945098, 0.25098, 1 )
+text = "Coins ="
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Pies Collected = " type="Label" parent="."]
+margin_left = 130.0
+margin_top = 96.0
+margin_right = 221.0
+margin_bottom = 125.0
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0.988235, 0.945098, 0.25098, 1 )
+text = "PIES ="
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Quit" to="Quit" method="_on_Quit_pressed"]

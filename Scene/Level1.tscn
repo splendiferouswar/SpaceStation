@@ -1,0 +1,801 @@
+[gd_scene load_steps=48 format=2]
+
+[ext_resource path="res://Scene/Dag.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scene/TileMaps.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scene/CanvasLayer.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scene/HUD.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scene/Coin.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scene/Pies/Pies.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Fonts/SpaceQuest-yOY3.ttf" type="DynamicFontData" id=11]
+[ext_resource path="res://Scene/Droids/Droid1.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Scene/Droids/Droid2.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Scene/Droids/Droid3.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Music/Music/02-Space-Riddle.ogg" type="AudioStream" id=17]
+[ext_resource path="res://Scene/Portal.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Images/Crab Nebula.jpg" type="Texture" id=19]
+[ext_resource path="res://Images/pillars_of_creation.jpg" type="Texture" id=20]
+[ext_resource path="res://Scripts/Level1.gd" type="Script" id=21]
+[ext_resource path="res://Scene/Droids/Droid4.tscn" type="PackedScene" id=22]
+[ext_resource path="res://Scene/Droids/Droid5.tscn" type="PackedScene" id=23]
+[ext_resource path="res://Scene/Droids/Droid7.tscn" type="PackedScene" id=24]
+[ext_resource path="res://Scene/Droids/Droid9.tscn" type="PackedScene" id=25]
+[ext_resource path="res://Scene/Droids/Droid11.tscn" type="PackedScene" id=26]
+[ext_resource path="res://Scene/Droids/Droid13.tscn" type="PackedScene" id=27]
+[ext_resource path="res://Scene/Droids/Droid15.tscn" type="PackedScene" id=28]
+[ext_resource path="res://Scene/Droids/Droid17.tscn" type="PackedScene" id=29]
+[ext_resource path="res://Scene/Droids/Droid19.tscn" type="PackedScene" id=30]
+[ext_resource path="res://Scene/Droids/Droid21.tscn" type="PackedScene" id=31]
+[ext_resource path="res://Scene/Droids/Droid23.tscn" type="PackedScene" id=32]
+[ext_resource path="res://Scene/Droids/Droid25.tscn" type="PackedScene" id=33]
+[ext_resource path="res://Scene/Droids/Droid29.tscn" type="PackedScene" id=34]
+[ext_resource path="res://Scene/Droids/Droid31.tscn" type="PackedScene" id=35]
+[ext_resource path="res://Scene/Droids/Droid27.tscn" type="PackedScene" id=36]
+[ext_resource path="res://Scene/Droids/Droid33.tscn" type="PackedScene" id=37]
+[ext_resource path="res://Scene/Droids/Droid35.tscn" type="PackedScene" id=38]
+[ext_resource path="res://Scene/Droids/Droid39.tscn" type="PackedScene" id=39]
+[ext_resource path="res://Scene/Droids/Droid43.tscn" type="PackedScene" id=40]
+[ext_resource path="res://Scene/Droids/Droid45.tscn" type="PackedScene" id=41]
+[ext_resource path="res://Scene/Droids/Droid41.tscn" type="PackedScene" id=42]
+[ext_resource path="res://Scene/Pies/Pies2.tscn" type="PackedScene" id=43]
+[ext_resource path="res://Scene/Pies/Pies3.tscn" type="PackedScene" id=44]
+[ext_resource path="res://Scene/CollisionBoxesLevel1/16by32LaserBoxes.tscn" type="PackedScene" id=45]
+[ext_resource path="res://Scene/CollisionBoxesLevel1/48by48laserBoxes.tscn" type="PackedScene" id=46]
+[ext_resource path="res://Scene/CollisionBoxesLevel1/32by32laserBoxes.tscn" type="PackedScene" id=47]
+[ext_resource path="res://Scene/CollisionBoxesLevel1/16by16laserBoxes.tscn" type="PackedScene" id=48]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Node
+
+func _ready():
+	#if get_node(\"Portal\").passedLevel1 == true:
+		#get_tree().change_scene(\"res://Scene/Level2.tscn\")
+		pass
+"
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 11 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 155.342, 472.582 )
+
+[sub_resource type="Animation" id=4]
+tracks/0/type = "value"
+tracks/0/path = NodePath("FadeInEffect/Crab Nebula:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.392157 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("FadeInEffect/pillars_of_creation:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.392157 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 521.288, 19.251 )
+
+[node name="Level1" instance=ExtResource( 1 )]
+script = SubResource( 1 )
+
+[node name="Warning" type="Node" parent="." index="0"]
+
+[node name="NotEnoughPies" type="Panel" parent="Warning" index="0"]
+visible = false
+self_modulate = Color( 1, 1, 1, 0.647059 )
+margin_left = 4298.42
+margin_top = -1269.15
+margin_right = 4692.42
+margin_bottom = -1229.15
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Warning/NotEnoughPies" index="0"]
+margin_left = 6.74658
+margin_top = 7.54004
+margin_right = 350.747
+margin_bottom = 26.54
+custom_fonts/font = SubResource( 2 )
+text = "YOU NEED 3 PIES TO OPEN THIS WORMHOLE"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Nebulae" type="Node" parent="." index="1"]
+
+[node name="Area2D" type="Area2D" parent="Nebulae" index="0"]
+position = Vector2( 3550.06, -543.919 )
+script = ExtResource( 21 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Nebulae/Area2D" index="0"]
+shape = SubResource( 3 )
+
+[node name="FadeInEffect" type="AnimationPlayer" parent="Nebulae/Area2D" index="1"]
+"anims/Fade in" = SubResource( 4 )
+
+[node name="Crab Nebula" type="Sprite" parent="Nebulae/Area2D/FadeInEffect" index="0"]
+self_modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 4336.98, -624.417 )
+scale = Vector2( 4.04498, 4.04498 )
+z_index = -5
+texture = ExtResource( 19 )
+
+[node name="pillars_of_creation" type="Sprite" parent="Nebulae/Area2D/FadeInEffect" index="1"]
+self_modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 3058.59, -615.505 )
+scale = Vector2( 1.21134, 1.21134 )
+z_index = -5
+texture = ExtResource( 20 )
+
+[node name="Dag" parent="." index="2"]
+position = Vector2( 128, 416 )
+z_index = 5
+
+[node name="Camera2D" parent="Dag" index="2"]
+offset = Vector2( 0, -32 )
+limit_left = 48
+drag_margin_top = 0.5
+drag_margin_bottom = 0.5
+
+[node name="TileMaps" parent="." index="3" instance=ExtResource( 2 )]
+
+[node name="Coins" type="Node" parent="." index="4"]
+
+[node name="Coin1" parent="Coins" index="0" instance=ExtResource( 8 )]
+position = Vector2( 671.74, 415 )
+
+[node name="Coin2" parent="Coins" index="1" instance=ExtResource( 8 )]
+position = Vector2( 1197.91, 523.093 )
+
+[node name="Coin3" parent="Coins" index="2" instance=ExtResource( 8 )]
+position = Vector2( 1372.64, 1077.79 )
+
+[node name="Coin4" parent="Coins" index="3" instance=ExtResource( 8 )]
+position = Vector2( 1215.74, 973.864 )
+
+[node name="Coin5" parent="Coins" index="4" instance=ExtResource( 8 )]
+position = Vector2( 1331.3, 706.392 )
+
+[node name="Coin6" parent="Coins" index="5" instance=ExtResource( 8 )]
+position = Vector2( 1137.17, 843.658 )
+
+[node name="Coin7" parent="Coins" index="6" instance=ExtResource( 8 )]
+position = Vector2( 1085.44, 271.612 )
+
+[node name="Coin8" parent="Coins" index="7" instance=ExtResource( 8 )]
+position = Vector2( 527.675, 475.49 )
+
+[node name="Coin9" parent="Coins" index="8" instance=ExtResource( 8 )]
+position = Vector2( 1129.92, 590.143 )
+
+[node name="Coin10" parent="Coins" index="9" instance=ExtResource( 8 )]
+position = Vector2( 1465.06, 692.197 )
+
+[node name="Coin12" parent="Coins" index="10" instance=ExtResource( 8 )]
+position = Vector2( 1465.06, 692.197 )
+
+[node name="Coin13" parent="Coins" index="11" instance=ExtResource( 8 )]
+position = Vector2( 1465.06, 692.197 )
+
+[node name="Coin14" parent="Coins" index="12" instance=ExtResource( 8 )]
+position = Vector2( 2982.03, 132.213 )
+
+[node name="Coin15" parent="Coins" index="13" instance=ExtResource( 8 )]
+position = Vector2( 3392.39, 150.66 )
+
+[node name="Coin16" parent="Coins" index="14" instance=ExtResource( 8 )]
+position = Vector2( 3661.48, 281.84 )
+
+[node name="Coin17" parent="Coins" index="15" instance=ExtResource( 8 )]
+position = Vector2( 3449.58, 692.197 )
+
+[node name="Coin18" parent="Coins" index="16" instance=ExtResource( 8 )]
+position = Vector2( 2648, 236 )
+
+[node name="Coin19" parent="Coins" index="17" instance=ExtResource( 8 )]
+position = Vector2( 1957.82, 697.242 )
+
+[node name="Coin29" parent="Coins" index="18" instance=ExtResource( 8 )]
+position = Vector2( 5482.05, 115.296 )
+
+[node name="Coin41" parent="Coins" index="19" instance=ExtResource( 8 )]
+position = Vector2( 4820.94, -1045.88 )
+
+[node name="Coin42" parent="Coins" index="20" instance=ExtResource( 8 )]
+position = Vector2( 4920.53, -1225.98 )
+
+[node name="Coin43" parent="Coins" index="21" instance=ExtResource( 8 )]
+position = Vector2( 4675.62, -1028.86 )
+
+[node name="Coin44" parent="Coins" index="22" instance=ExtResource( 8 )]
+position = Vector2( 4609.2, -484.667 )
+
+[node name="Coin45" parent="Coins" index="23" instance=ExtResource( 8 )]
+position = Vector2( 4683.19, -319.851 )
+
+[node name="Coin46" parent="Coins" index="24" instance=ExtResource( 8 )]
+position = Vector2( 5298.73, -301.352 )
+
+[node name="Coin47" parent="Coins" index="25" instance=ExtResource( 8 )]
+position = Vector2( 5298.73, -260.988 )
+
+[node name="Coin48" parent="Coins" index="26" instance=ExtResource( 8 )]
+position = Vector2( 4412.43, -213.898 )
+
+[node name="Coin49" parent="Coins" index="27" instance=ExtResource( 8 )]
+position = Vector2( 4915.28, -70.9459 )
+
+[node name="Coin50" parent="Coins" index="28" instance=ExtResource( 8 )]
+position = Vector2( 5500.55, 598.408 )
+
+[node name="Coin51" parent="Coins" index="29" instance=ExtResource( 8 )]
+position = Vector2( 5017.87, 687.543 )
+
+[node name="Coin52" parent="Coins" index="30" instance=ExtResource( 8 )]
+position = Vector2( 3896.12, 564.772 )
+
+[node name="Coin30" parent="Coins" index="31" instance=ExtResource( 8 )]
+position = Vector2( 4214, 125.556 )
+
+[node name="Coin31" parent="Coins" index="32" instance=ExtResource( 8 )]
+position = Vector2( 3958.05, 169.685 )
+
+[node name="Coin32" parent="Coins" index="33" instance=ExtResource( 8 )]
+position = Vector2( 4532.75, 120.297 )
+
+[node name="Coin33" parent="Coins" index="34" instance=ExtResource( 8 )]
+position = Vector2( 4270.1, 567.037 )
+
+[node name="Coin34" parent="Coins" index="35" instance=ExtResource( 8 )]
+position = Vector2( 2050.72, 1055.34 )
+
+[node name="Coin35" parent="Coins" index="36" instance=ExtResource( 8 )]
+position = Vector2( 2192.85, 124.274 )
+
+[node name="Coin36" parent="Coins" index="37" instance=ExtResource( 8 )]
+position = Vector2( 2284.83, -404.414 )
+
+[node name="Coin37" parent="Coins" index="38" instance=ExtResource( 8 )]
+position = Vector2( 2245.14, -404.176 )
+
+[node name="Coin38" parent="Coins" index="39" instance=ExtResource( 8 )]
+position = Vector2( 2201.68, -404.332 )
+
+[node name="Coin39" parent="Coins" index="40" instance=ExtResource( 8 )]
+position = Vector2( 2090.38, -127.247 )
+
+[node name="Coin40" parent="Coins" index="41" instance=ExtResource( 8 )]
+position = Vector2( 2422, -37.701 )
+
+[node name="Coin20" parent="Coins" index="42" instance=ExtResource( 8 )]
+position = Vector2( 1651.74, 207.841 )
+
+[node name="Coin21" parent="Coins" index="43" instance=ExtResource( 8 )]
+position = Vector2( 1292, -36 )
+
+[node name="Coin53" parent="Coins" index="44" instance=ExtResource( 8 )]
+position = Vector2( 1376, -144 )
+
+[node name="Coin55" parent="Coins" index="45" instance=ExtResource( 8 )]
+position = Vector2( 1236, -208 )
+
+[node name="Coin56" parent="Coins" index="46" instance=ExtResource( 8 )]
+position = Vector2( 1172, -276 )
+
+[node name="Coin57" parent="Coins" index="47" instance=ExtResource( 8 )]
+position = Vector2( 1304, -384 )
+
+[node name="Coin58" parent="Coins" index="48" instance=ExtResource( 8 )]
+position = Vector2( 1420, -452 )
+
+[node name="Coin54" parent="Coins" index="49" instance=ExtResource( 8 )]
+position = Vector2( 1320, 185.094 )
+
+[node name="Coin22" parent="Coins" index="50" instance=ExtResource( 8 )]
+position = Vector2( 2600, 536 )
+
+[node name="Coin23" parent="Coins" index="51" instance=ExtResource( 8 )]
+position = Vector2( 2007.05, 456.88 )
+
+[node name="Coin24" parent="Coins" index="52" instance=ExtResource( 8 )]
+position = Vector2( 1319.7, 395.82 )
+
+[node name="Coin25" parent="Coins" index="53" instance=ExtResource( 8 )]
+position = Vector2( 2367.4, 854.543 )
+
+[node name="Coin26" parent="Coins" index="54" instance=ExtResource( 8 )]
+position = Vector2( 3096.07, 948.931 )
+
+[node name="Coin27" parent="Coins" index="55" instance=ExtResource( 8 )]
+position = Vector2( 2325.87, 1177.35 )
+
+[node name="Coin28" parent="Coins" index="56" instance=ExtResource( 8 )]
+position = Vector2( 1793.53, 1179.24 )
+
+[node name="Coin11" parent="Coins" index="57" instance=ExtResource( 8 )]
+position = Vector2( 746.901, 499.429 )
+
+[node name="HUD" parent="." index="5" instance=ExtResource( 4 )]
+
+[node name="Droids" type="Node" parent="." index="6"]
+
+[node name="Droid1" parent="Droids" index="0" instance=ExtResource( 14 )]
+position = Vector2( 370.208, 413.577 )
+
+[node name="Droid2" parent="Droids" index="1" instance=ExtResource( 15 )]
+position = Vector2( 1127.38, 1145.87 )
+
+[node name="Droid3" parent="Droids" index="2" instance=ExtResource( 16 )]
+position = Vector2( 1006.86, 347.04 )
+
+[node name="Droid6" parent="Droids" index="3" instance=ExtResource( 16 )]
+position = Vector2( 2339.05, -419.464 )
+
+[node name="Droid4" parent="Droids" index="4" instance=ExtResource( 22 )]
+position = Vector2( 666.498, 412.262 )
+
+[node name="Droid5" parent="Droids" index="5" instance=ExtResource( 23 )]
+position = Vector2( 1512.04, 691.332 )
+
+[node name="Droid5_2" parent="Droids" index="6" instance=ExtResource( 23 )]
+position = Vector2( 1858.13, 127.852 )
+
+[node name="Droid7" parent="Droids" index="7" instance=ExtResource( 24 )]
+position = Vector2( 1354.24, 183.113 )
+
+[node name="Droid8" parent="Droids" index="8" instance=ExtResource( 24 )]
+position = Vector2( 2711.89, 485.755 )
+
+[node name="Droid9" parent="Droids" index="9" instance=ExtResource( 25 )]
+position = Vector2( 1518.85, 399.147 )
+
+[node name="Droid10" parent="Droids" index="10" instance=ExtResource( 25 )]
+position = Vector2( 3222.24, 516.745 )
+
+[node name="Droid11" parent="Droids" index="11" instance=ExtResource( 26 )]
+position = Vector2( 2060.63, 459.083 )
+
+[node name="Droid12" parent="Droids" index="12" instance=ExtResource( 26 )]
+position = Vector2( 4621.45, -446.187 )
+
+[node name="Droid13" parent="Droids" index="13" instance=ExtResource( 27 )]
+position = Vector2( 1722.04, 629.141 )
+
+[node name="Droid14" parent="Droids" index="14" instance=ExtResource( 27 )]
+position = Vector2( 4837.29, 682.254 )
+
+[node name="Droid15" parent="Droids" index="15" instance=ExtResource( 28 )]
+position = Vector2( 2150.33, 755.661 )
+
+[node name="Droid16" parent="Droids" index="16" instance=ExtResource( 28 )]
+position = Vector2( 4796.17, 549.034 )
+
+[node name="Droid17" parent="Droids" index="17" instance=ExtResource( 29 )]
+position = Vector2( 2019.31, 1017.87 )
+
+[node name="Droid18" parent="Droids" index="18" instance=ExtResource( 29 )]
+position = Vector2( 4726.35, -862.332 )
+
+[node name="Droid19" parent="Droids" index="19" instance=ExtResource( 30 )]
+position = Vector2( 2574.14, 1019.11 )
+
+[node name="Droid20" parent="Droids" index="20" instance=ExtResource( 30 )]
+position = Vector2( 4531.16, -1147.77 )
+
+[node name="Droid21" parent="Droids" index="21" instance=ExtResource( 31 )]
+position = Vector2( 1280.62, 651.182 )
+
+[node name="Droid22" parent="Droids" index="22" instance=ExtResource( 31 )]
+position = Vector2( 4416.63, -1145.36 )
+
+[node name="Droid23" parent="Droids" index="23" instance=ExtResource( 32 )]
+position = Vector2( 1450.19, 566.562 )
+
+[node name="Droid24" parent="Droids" index="24" instance=ExtResource( 32 )]
+position = Vector2( 3020.41, 947.132 )
+
+[node name="Droid25" parent="Droids" index="25" instance=ExtResource( 33 )]
+position = Vector2( 1735.03, 157.245 )
+
+[node name="Droid26" parent="Droids" index="26" instance=ExtResource( 33 )]
+position = Vector2( 2813.81, 1008.28 )
+
+[node name="Droid27" parent="Droids" index="27" instance=ExtResource( 36 )]
+position = Vector2( 1012.02, 589.539 )
+
+[node name="Droid28" parent="Droids" index="28" instance=ExtResource( 36 )]
+position = Vector2( 4889.64, -721.951 )
+
+[node name="Droid29" parent="Droids" index="29" instance=ExtResource( 34 )]
+position = Vector2( 2520.36, 312.914 )
+
+[node name="Droid30" parent="Droids" index="30" instance=ExtResource( 34 )]
+position = Vector2( 2116.36, 452.914 )
+
+[node name="Droid31" parent="Droids" index="31" instance=ExtResource( 35 )]
+position = Vector2( 4251.57, 239.975 )
+
+[node name="Droid32" parent="Droids" index="32" instance=ExtResource( 35 )]
+position = Vector2( 4459.23, -270.686 )
+
+[node name="Droid33" parent="Droids" index="33" instance=ExtResource( 37 )]
+position = Vector2( 2314.8, -274.415 )
+
+[node name="Droid34" parent="Droids" index="34" instance=ExtResource( 37 )]
+position = Vector2( 4169.46, 129.305 )
+
+[node name="Droid35" parent="Droids" index="35" instance=ExtResource( 38 )]
+position = Vector2( 2308.76, -5.64911 )
+
+[node name="Droid36" parent="Droids" index="36" instance=ExtResource( 38 )]
+position = Vector2( 3855.91, 678.83 )
+
+[node name="Droid37" parent="Droids" index="37" instance=ExtResource( 38 )]
+position = Vector2( 2873.76, 229.115 )
+
+[node name="Droid38" parent="Droids" index="38" instance=ExtResource( 38 )]
+position = Vector2( 3698.02, 430.413 )
+
+[node name="Droid39" parent="Droids" index="39" instance=ExtResource( 39 )]
+position = Vector2( 3085.49, 410.058 )
+
+[node name="Droid40" parent="Droids" index="40" instance=ExtResource( 39 )]
+position = Vector2( 2947.76, 126.122 )
+
+[node name="Droid41" parent="Droids" index="41" instance=ExtResource( 42 )]
+position = Vector2( 3414.55, 504.068 )
+
+[node name="Droid42" parent="Droids" index="42" instance=ExtResource( 42 )]
+position = Vector2( 3310.72, 118.423 )
+
+[node name="Droid43" parent="Droids" index="43" instance=ExtResource( 40 )]
+position = Vector2( 2993.78, 683.37 )
+
+[node name="Droid44" parent="Droids" index="44" instance=ExtResource( 40 )]
+position = Vector2( 5062.78, -226.991 )
+
+[node name="Droid45" parent="Droids" index="45" instance=ExtResource( 41 )]
+position = Vector2( 5370.91, 92.1845 )
+
+[node name="Droid46" parent="Droids" index="46" instance=ExtResource( 41 )]
+position = Vector2( 5397.58, 610.37 )
+
+[node name="Pies" type="Node" parent="." index="7"]
+
+[node name="Pies" parent="Pies" index="0" instance=ExtResource( 9 )]
+position = Vector2( 1168, -516 )
+
+[node name="Pies2" parent="Pies" index="1" instance=ExtResource( 43 )]
+position = Vector2( 2974.43, 1168.35 )
+
+[node name="Pies3" parent="Pies" index="2" instance=ExtResource( 44 )]
+position = Vector2( 4750.19, -1331.63 )
+
+[node name="MusicLevel" type="AudioStreamPlayer" parent="." index="8"]
+stream = ExtResource( 17 )
+volume_db = -10.0
+autoplay = true
+
+[node name="Portal" parent="." index="9" instance=ExtResource( 18 )]
+position = Vector2( 4243.47, -1185.74 )
+
+[node name="CanvasLayer" parent="." index="10" instance=ExtResource( 3 )]
+
+[node name="OuterWallLaseCollision" type="Node" parent="." index="11"]
+
+[node name="Area2D" type="Area2D" parent="OuterWallLaseCollision" index="0"]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OuterWallLaseCollision/Area2D" index="0"]
+visible = false
+position = Vector2( 390.942, 226.725 )
+z_index = 2
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="OuterWallLaseCollision/Area2D" index="1"]
+visible = false
+position = Vector2( 896.845, -276.938 )
+rotation = 1.57079
+z_index = 2
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="OuterWallLaseCollision/Area2D" index="2"]
+visible = false
+position = Vector2( 1087.33, -469.602 )
+rotation = 1.57079
+z_index = 2
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="OuterWallLaseCollision/Area2D" index="3"]
+visible = false
+position = Vector2( 1504.37, -472.638 )
+rotation = 1.57079
+z_index = 2
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D32" type="CollisionShape2D" parent="OuterWallLaseCollision/Area2D" index="4"]
+visible = false
+position = Vector2( 2046.99, -471.385 )
+rotation = 1.57079
+z_index = 2
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D33" type="CollisionShape2D" parent="OuterWallLaseCollision/Area2D" index="5"]
+visible = false
+position = Vector2( 2465.76, -470.544 )
+rotation = 1.57079
+z_index = 2
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="OuterWallLaseCollision/Area2D" index="6"]
+visible = false
+position = Vector2( 3393.97, -482.151 )
+rotation = 1.57079
+z_index = 2
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D12" type="CollisionShape2D" parent="OuterWallLaseCollision/Area2D" index="7"]
+visible = false
+position = Vector2( 3711.66, -473.554 )
+rotation = 1.57079
+z_index = 2
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D13" type="CollisionShape2D" parent="OuterWallLaseCollision/Area2D" index="8"]
+visible = false
+position = Vector2( 4346.66, -523.951 )
+rotation = 1.57079
+z_index = 2
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D34" type="CollisionShape2D" parent="OuterWallLaseCollision/Area2D" index="9"]
+visible = false
+position = Vector2( 4159.45, -1169.64 )
+rotation = 1.57079
+z_index = 2
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D35" type="CollisionShape2D" parent="OuterWallLaseCollision/Area2D" index="10"]
+visible = false
+position = Vector2( 4958.29, -849.68 )
+rotation = 1.57079
+z_index = 2
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D36" type="CollisionShape2D" parent="OuterWallLaseCollision/Area2D" index="11"]
+visible = false
+position = Vector2( 5343.93, -639.906 )
+rotation = 1.57079
+z_index = 2
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D37" type="CollisionShape2D" parent="OuterWallLaseCollision/Area2D" index="12"]
+visible = false
+position = Vector2( 5536.75, 309.373 )
+rotation = 1.57079
+z_index = 2
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D38" type="CollisionShape2D" parent="OuterWallLaseCollision/Area2D" index="13"]
+visible = false
+position = Vector2( 3138.34, 1383.79 )
+rotation = 1.57079
+z_index = 2
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D39" type="CollisionShape2D" parent="OuterWallLaseCollision/Area2D" index="14"]
+visible = false
+position = Vector2( 1760.48, 1399.66 )
+rotation = 1.57079
+z_index = 2
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D40" type="CollisionShape2D" parent="OuterWallLaseCollision/Area2D" index="15"]
+visible = false
+position = Vector2( 1410.27, 1240.27 )
+rotation = 1.57079
+z_index = 2
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D41" type="CollisionShape2D" parent="OuterWallLaseCollision/Area2D" index="16"]
+visible = false
+position = Vector2( 1087, 1240.27 )
+rotation = 1.57079
+z_index = 2
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="OuterWallLaseCollision/Area2D" index="17"]
+visible = false
+position = Vector2( 584.691, 32.4217 )
+rotation = 3.14159
+z_index = 2
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="OuterWallLaseCollision/Area2D" index="18"]
+visible = false
+position = Vector2( 1401.98, -640.508 )
+rotation = 3.14159
+z_index = 2
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="OuterWallLaseCollision/Area2D" index="19"]
+visible = false
+position = Vector2( 2128.95, -540.727 )
+rotation = 3.14159
+z_index = 2
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="OuterWallLaseCollision/Area2D" index="20"]
+visible = false
+position = Vector2( 3397.63, -1024.36 )
+rotation = 3.14159
+z_index = 2
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D14" type="CollisionShape2D" parent="OuterWallLaseCollision/Area2D" index="21"]
+visible = false
+position = Vector2( 4135.95, -1087.36 )
+rotation = 3.14159
+z_index = 2
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D15" type="CollisionShape2D" parent="OuterWallLaseCollision/Area2D" index="22"]
+visible = false
+position = Vector2( 4138.47, -1311.62 )
+rotation = 3.14159
+z_index = 2
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D16" type="CollisionShape2D" parent="OuterWallLaseCollision/Area2D" index="23"]
+visible = false
+position = Vector2( 4745.75, -1404.86 )
+rotation = 3.14159
+z_index = 2
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D17" type="CollisionShape2D" parent="OuterWallLaseCollision/Area2D" index="24"]
+visible = false
+position = Vector2( 5365.63, -1311.62 )
+rotation = 3.14159
+z_index = 2
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D18" type="CollisionShape2D" parent="OuterWallLaseCollision/Area2D" index="25"]
+visible = false
+position = Vector2( 5365.63, -1182.93 )
+rotation = 3.14159
+z_index = 2
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D19" type="CollisionShape2D" parent="OuterWallLaseCollision/Area2D" index="26"]
+visible = false
+position = Vector2( 5367.05, -832.205 )
+rotation = 3.14159
+z_index = 2
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D20" type="CollisionShape2D" parent="OuterWallLaseCollision/Area2D" index="27"]
+visible = false
+position = Vector2( 5461.48, -352.011 )
+rotation = 3.14159
+z_index = 2
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D21" type="CollisionShape2D" parent="OuterWallLaseCollision/Area2D" index="28"]
+visible = false
+position = Vector2( 5748.57, -221.903 )
+rotation = 3.14159
+z_index = 2
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D22" type="CollisionShape2D" parent="OuterWallLaseCollision/Area2D" index="29"]
+visible = false
+position = Vector2( 5463.63, -125.072 )
+rotation = 3.14159
+z_index = 2
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D23" type="CollisionShape2D" parent="OuterWallLaseCollision/Area2D" index="30"]
+visible = false
+position = Vector2( 5462.83, 33.6686 )
+rotation = 3.14159
+z_index = 2
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D24" type="CollisionShape2D" parent="OuterWallLaseCollision/Area2D" index="31"]
+visible = false
+position = Vector2( 5032.23, 736.414 )
+rotation = 3.14159
+z_index = 2
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D25" type="CollisionShape2D" parent="OuterWallLaseCollision/Area2D" index="32"]
+visible = false
+position = Vector2( 3993.03, 737.358 )
+rotation = 3.14159
+z_index = 2
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D27" type="CollisionShape2D" parent="OuterWallLaseCollision/Area2D" index="33"]
+visible = false
+position = Vector2( 2966.71, 898.161 )
+rotation = 3.14159
+z_index = 2
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D28" type="CollisionShape2D" parent="OuterWallLaseCollision/Area2D" index="34"]
+visible = false
+position = Vector2( 2600.43, 1216.36 )
+rotation = 3.14159
+z_index = 2
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D29" type="CollisionShape2D" parent="OuterWallLaseCollision/Area2D" index="35"]
+visible = false
+position = Vector2( 1584.58, 1216.36 )
+rotation = 3.14159
+z_index = 2
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D30" type="CollisionShape2D" parent="OuterWallLaseCollision/Area2D" index="36"]
+visible = false
+position = Vector2( 1256.45, 1184.89 )
+rotation = 3.14159
+z_index = 2
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D31" type="CollisionShape2D" parent="OuterWallLaseCollision/Area2D" index="37"]
+visible = false
+position = Vector2( 583.708, 738.399 )
+rotation = 3.14159
+z_index = 2
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D26" type="CollisionShape2D" parent="OuterWallLaseCollision/Area2D" index="38"]
+visible = false
+position = Vector2( 2967.04, 738.302 )
+rotation = 3.14159
+z_index = 2
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="OuterWallLaseCollision/Area2D" index="39"]
+visible = false
+position = Vector2( 2888.89, 33.0118 )
+rotation = 3.14159
+z_index = 2
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="OuterWallLaseCollision/Area2D" index="40"]
+visible = false
+position = Vector2( 392.524, 545.667 )
+z_index = 2
+shape = SubResource( 5 )
+
+[node name="LaserBoxes" type="Node" parent="." index="12"]
+
+[node name="48by48laserBoxes" parent="LaserBoxes" index="0" instance=ExtResource( 46 )]
+
+[node name="32by32laserBoxes" parent="LaserBoxes" index="1" instance=ExtResource( 47 )]
+
+[node name="16by32LaserBoxes" parent="LaserBoxes" index="2" instance=ExtResource( 45 )]
+
+[node name="16by16laserBoxes" parent="LaserBoxes" index="3" instance=ExtResource( 48 )]
+
+[connection signal="body_entered" from="Nebulae/Area2D" to="Nebulae/Area2D" method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="Nebulae/Area2D" to="Nebulae/Area2D" method="_on_Area2D_body_exited"]

@@ -1,0 +1,13 @@
+[gd_scene format=2]
+
+[node name="hit_particles" type="CPUParticles2D"]
+emitting = false
+amount = 25
+one_shot = true
+speed_scale = 2.0
+explosiveness = 0.5
+local_coords = false
+emission_shape = 1
+emission_sphere_radius = 1.0
+initial_velocity = 25.0
+initial_velocity_random = 1.0

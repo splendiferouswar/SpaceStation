@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Free-Game-Soundtrack-by-cactusdude-_hurry-up_.ogg-58b4170491c44ab7ff14634cf35c1b09.oggstr"
+
+[deps]
+
+source_file="res://Music/Music/Free-Game-Soundtrack-by-cactusdude-_hurry-up_.ogg"
+dest_files=[ "res://.import/Free-Game-Soundtrack-by-cactusdude-_hurry-up_.ogg-58b4170491c44ab7ff14634cf35c1b09.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

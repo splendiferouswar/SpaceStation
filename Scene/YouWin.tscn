@@ -1,0 +1,56 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Images/blackhole.jpg" type="Texture" id=1]
+[ext_resource path="res://Fonts/SpaceQuest-yOY3.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Scripts/MainMenuButton.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 35
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 80
+font_data = ExtResource( 2 )
+
+[node name="YouWin" type="Control"]
+margin_right = 1920.0
+margin_bottom = 1080.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+self_modulate = Color( 1, 1, 1, 0.635294 )
+margin_right = 1920.0
+margin_bottom = 1080.0
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MainMenuButton" type="Button" parent="."]
+margin_left = 895.616
+margin_top = 714.66
+margin_right = 1133.62
+margin_bottom = 772.66
+custom_fonts/font = SubResource( 1 )
+text = "MAIN MENU"
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="YouWin" type="Label" parent="."]
+margin_left = 727.599
+margin_top = 347.163
+margin_right = 1123.6
+margin_bottom = 438.163
+rect_scale = Vector2( 1.5, 1.5 )
+custom_fonts/font = SubResource( 2 )
+text = "YOU WIN!!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="MainMenuButton" to="MainMenuButton" method="_on_MainMenuButton_pressed"]

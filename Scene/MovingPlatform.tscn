@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scripts/MovingPlatform.gd" type="Script" id=1]
+[ext_resource path="res://Images/PlatformMoving.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 34.2826, 8.68594 )
+
+[node name="MovingPlatform" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Platform" type="KinematicBody2D" parent="."]
+
+[node name="Sprite" type="Sprite" parent="Platform"]
+self_modulate = Color( 0.552941, 0.552941, 0.552941, 1 )
+position = Vector2( -0.0014019, -0.0298986 )
+scale = Vector2( 0.13493, 0.13493 )
+texture = ExtResource( 2 )
+region_rect = Rect2( 96, 160, 32, 32 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
+position = Vector2( -0.00442505, 0.0267715 )
+shape = SubResource( 1 )
+
+[node name="MoveTween" type="Tween" parent="."]
+repeat = true
+playback_process_mode = 0
+playback/repeat = true
